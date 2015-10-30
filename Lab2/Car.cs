@@ -4,15 +4,50 @@ namespace Lab2
 {
     class Car
     {
-        public string Manufacturer { get; set; }
-        public int CylinderCount { get; set; }
-        public int Power { get; set; }
+        protected string manufacturer;
+        protected int cylinderCount;
+        protected int power;
 
-        public Car()
+        public string Manufacturer
         {
-            Manufacturer = "N/A";
-            CylinderCount = 0;
-            Power = 0;
+            get { return manufacturer; }
+            set
+            {
+                try { manufacturer = value; }
+                catch (FormatException exception)
+                {
+                    Console.WriteLine(exception.Message);
+                    Console.WriteLine("Введите марку заново.");
+                }
+            }
+        }
+
+        public int CylinderCount
+        {
+            get { return cylinderCount; }
+            set
+            {
+                try { cylinderCount = value; }
+                catch (FormatException exception)
+                {
+                    Console.WriteLine(exception.Message);
+                    Console.WriteLine("Введите количество цилиндров двигателя заново.");
+                }
+            }
+        }
+
+        public int Power
+        {
+            get { return power; }
+            set
+            {
+                try { power = value; }
+                catch (FormatException exception)
+                {
+                    Console.WriteLine(exception.Message);
+                    Console.WriteLine("Введите мощность двигателя заново.");
+                }
+            }
         }
     }
 
@@ -52,18 +87,6 @@ namespace Lab2
                             {
                                 case "1":
                                     Console.Clear();
-                                    Console.WriteLine("Введите марку автомобиля, количество цилиндров двигателя и его мощность.");
-                                    try
-                                    {
-                                        car.Manufacturer = Console.ReadLine();
-                                        car.CylinderCount = Convert.ToInt32(Console.ReadLine());
-                                        car.Power = Convert.ToInt32(Console.ReadLine());
-                                    }
-                                    catch (FormatException exception)
-                                    {
-                                        Console.WriteLine(exception.Message);
-                                        Console.WriteLine("Введите данные заново.");
-                                    }
                                     break;
                                 default:
                                     Console.Clear();
