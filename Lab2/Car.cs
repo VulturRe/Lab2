@@ -8,6 +8,13 @@ namespace Lab2
         protected int cylinderCount;
         protected int power;
 
+        public Car()
+        {
+            manufacturer = "N/A";
+            cylinderCount = 0;
+            power = 0;
+        }
+
         public string Manufacturer
         {
             get { return manufacturer; }
