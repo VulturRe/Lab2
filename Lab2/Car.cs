@@ -56,16 +56,44 @@ namespace Lab2
                 }
             }
         }
+
+        public virtual void Print()
+        {
+            Console.WriteLine("Марка автомобиля: {0}", manufacturer);
+            Console.WriteLine("Количество цилиндров двигателя: {0}", cylinderCount);
+            Console.WriteLine("Мощность двигателя: {0}", power);
+        }
     }
 
     class Lorry : Car
     {
-        public int Carrying { get; set; }
+        protected int carrying;
 
         public Lorry()
         {
-            Carrying = 0;
+            carrying = 0;
         }
+
+        public int Carrying
+        {
+            get { return carrying; }
+            set
+            {
+                try { carrying = value; }
+                catch (FormatException exception)
+                {
+                    Console.WriteLine(exception.Message);
+                    Console.WriteLine("Введите грузоподъемность заново.");
+                }
+            }
+        }
+
+        public override void Print()
+        {
+            base.Print();
+            Console.WriteLine("Грузоподъёмность: {0}", carrying);
+        }
+
     }
 
     class Test
