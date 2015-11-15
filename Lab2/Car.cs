@@ -44,6 +44,7 @@ namespace Lab2
     {
         private static void Main()
         {
+            Console.Title = "Лабораторная работа №2";
             var car = new Car();
             var lorry = new Lorry();
 
