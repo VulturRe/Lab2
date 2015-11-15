@@ -5,8 +5,10 @@ namespace Lab2_classroom
 {
     abstract class File
     {
-        public abstract void Open(string path);
-        public abstract void Close(string path);
+        protected string Path;
+
+        public abstract void Open();
+        public abstract void Close();
         public abstract string Seek();
         public abstract string Read();
         public abstract void Write(string data);
@@ -16,16 +18,31 @@ namespace Lab2_classroom
 
     class MyDataFile1 : File
     {
-        public override void Open(string path)
+        public MyDataFile1(string path)
         {
-            var file = new FileInfo(path);
+            Path = path;
+        }
+
+        public override void Open()
+        {
+            var file = new FileInfo(Path);
             Console.WriteLine(file.Exists ? "Файл типа MyDataFile1 открыт." : "Файл типа MyDataFile1 не найден.");
         }
 
-        public override void Close(string path)
+        public override void Close()
         {
-            var file = new FileInfo(path);
+            var file = new FileInfo(Path);
             Console.WriteLine(file.Exists ? "Файл типа MyDataFile1 закрыт." : "Файл типа MyDataFile1 не найден.");
+        }
+
+        public override string Seek()
+        {
+            var file = new FileInfo(Path);
+            string[] readText;
+            using (var fs = file.OpenRead())
+            {
+                
+            }
         }
     }
 }
