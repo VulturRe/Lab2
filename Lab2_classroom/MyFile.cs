@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Lab2_classroom
 {
-    abstract class File
+    abstract class MyFile
     {
         protected string Path;
 
@@ -16,7 +16,7 @@ namespace Lab2_classroom
         public abstract int GetLength();
     }
 
-    class MyDataFile1 : File
+    class MyDataFile1 : MyFile
     {
         public MyDataFile1(string path)
         {
